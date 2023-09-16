@@ -1,1 +1,22 @@
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:oracle:thin:@//localhost:1521/xe
+    hikari:
+      connection-timeout: 1000 #1sec
+      pool-name: SpringBootJPAHikariCP
+      connection-test-query: select 1 from dual
+      driver-class-name: oracle.jdbc.OracleDriver
+      username: dev
+      password: dev
 
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database: oracle
+    open-in-view: false
+
+  flyway:
+    baseline-on-migrate: true
+    table: FLYWAY_SCHEMA_HISTORY
+    enabled: true

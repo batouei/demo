@@ -1,0 +1,17 @@
+version: "3"
+services:
+  redis:
+    image: redis:5.0.9
+    ports:
+      - 6379:6379
+    networks:
+      - shop
+  db:
+    image: quay.io/maksymbilenko/oracle-12c:latest
+    volumes:
+      - oracle:/u01/app/oracle
+    ports:
+      - 1521:1521
+    hostname: oracle
+    networks:
+      - shop

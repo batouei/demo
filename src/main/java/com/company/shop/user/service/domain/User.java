@@ -6,11 +6,17 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import static javax.persistence.GenerationType.IDENTITY;
 import static lombok.AccessLevel.PROTECTED;
 
+/**
+ * Demonstrate the user entity.
+ *  Note: the name of table is users because the user is reserved name in db.
+ */
 @Getter
+@Table(name = "USERS")
 @Entity
 @NoArgsConstructor(access = PROTECTED)
 public class User {
