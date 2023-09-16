@@ -20,3 +20,9 @@ spring:
     baseline-on-migrate: true
     table: FLYWAY_SCHEMA_HISTORY
     enabled: true
+
+security:
+  allowed-routes:
+    - pathPattern: "/users/login"
+    - pathPattern: "/users/register"
+
