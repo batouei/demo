@@ -26,3 +26,15 @@ security:
     - pathPattern: "/users/login"
     - pathPattern: "/users/register"
 
+web:
+  cors:
+    pathPattern: "/**"
+    allowed-origins: [ "*" ]
+    allowed-methods: [ "POST", "OPTIONS", "HEAD" ]
+    allowed-headers: [ "origin", "content-type", "accept", "authorization" ]
+    credential: true
+
+
+jwt:
+  expiration: 3600000  # 1 hour. JWT Token Expiration in milliseconds.
+  secret:  # JWT Secret Key

@@ -1,15 +1,23 @@
 package com.company.shop.security;
 
+import com.company.shop.security.token.JwtUtil;
 import com.company.shop.security.token.UserTokenPayload;
+import com.company.shop.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
+
 @Component
 @RequiredArgsConstructor
 final class JwtTokenAuthProvider implements AuthenticationProvider {
+
+    private final UserService userService;
+    private final JwtUtil jwtUtil;
 
     @Override
     public Authentication authenticate(Authentication authentication) {
@@ -25,9 +33,12 @@ final class JwtTokenAuthProvider implements AuthenticationProvider {
         }
     }
 
-    private UserTokenPayload verify(String string) {
-        // todo verify token
-        return null;
+    private UserTokenPayload verify(String token) {
+        var userDetail = userService.findByUsername(jwtUtil.extractUsername(token));
+        var validatedToken = jwtUtil.validateToken(token, userDetail);
+        if (validatedToken)
+            return new UserTokenPayload(userDetail.getId(), Duration.of(jwtUtil.getExpirationMs(), ChronoUnit.MILLIS));
+        throw new BadCredentialsException("Invalid credential valid!");
     }
 
     @Override
