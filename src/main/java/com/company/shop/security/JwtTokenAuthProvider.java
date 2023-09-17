@@ -14,7 +14,7 @@ import java.time.temporal.ChronoUnit;
 
 @Component
 @RequiredArgsConstructor
-final class JwtTokenAuthProvider implements AuthenticationProvider {
+public final class JwtTokenAuthProvider implements AuthenticationProvider {
 
     private final UserService userService;
     private final JwtUtil jwtUtil;

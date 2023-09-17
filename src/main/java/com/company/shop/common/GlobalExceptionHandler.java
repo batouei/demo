@@ -19,7 +19,7 @@ public class GlobalExceptionHandler {
     private final MessageSourceAccessor messageSourceAccessor;
 
     @ExceptionHandler({
-            UserNotFoundException.class,
+            UserNotFoundException.class
     })
     public ResponseEntity<String> handleInternalServerExceptionBySimpleName(Exception e) {
         var msg = getMessage(e.getClass().getSimpleName());
@@ -28,7 +28,7 @@ public class GlobalExceptionHandler {
 
 
     @ExceptionHandler({
-            UnAuthorizedUserException.class,
+            UnAuthorizedUserException.class
     })
     public ResponseEntity<String> handleAuthExceptionBySimpleName(Exception e) {
         var msg = getMessage(e.getClass().getSimpleName());

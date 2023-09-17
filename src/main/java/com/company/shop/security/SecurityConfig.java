@@ -1,7 +1,6 @@
 package com.company.shop.security;
 
 import com.company.shop.security.filter.JwtTokenFilter;
-import com.company.shop.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -20,7 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final UserService userService;
     private final SecurityConfigProperties securityConfigProperties;
     private final JwtTokenAuthProvider jwtTokenAuthProvider;
 
