@@ -36,5 +36,4 @@ public class SecurityConfigProperties {
          */
         private HttpMethod method;
     }
-
 }

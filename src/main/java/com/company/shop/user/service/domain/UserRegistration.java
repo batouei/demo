@@ -1,7 +1,9 @@
 package com.company.shop.user.service.domain;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+@Getter
 @RequiredArgsConstructor(staticName = "of")
 public final class UserRegistration {
 
