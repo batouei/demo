@@ -19,7 +19,7 @@ public class JwtUtil {
 
     @Getter
     @Value("${jwt.expirationMs}")
-    private long expirationMs;
+    private Long expirationMs;
 
     public String generateToken(UserDetail userDetail) {
         Map<String, Object> claims = new HashMap<>();

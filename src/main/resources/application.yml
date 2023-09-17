@@ -7,7 +7,7 @@ spring:
       pool-name: SpringBootJPAHikariCP
       connection-test-query: select 1 from dual
       driver-class-name: oracle.jdbc.OracleDriver
-      username: dev
+      username: mobillet
       password: dev
 
   jpa:
@@ -36,5 +36,5 @@ web:
 
 
 jwt:
-  expiration: 3600000  # 1 hour. JWT Token Expiration in milliseconds.
+  expirationMs: 3600000  # 1 hour. JWT Token Expiration in milliseconds.
   secret:  # JWT Secret Key

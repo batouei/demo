@@ -37,6 +37,5 @@ public class UserServiceImpl implements UserService {
                 userRegistration.getMobileNumber());
 
         userRepository.save(user);
-
     }
 }
