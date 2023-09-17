@@ -32,6 +32,7 @@ public final class AuthUser implements Authentication {
      * Represents the user auto increment identifier in our oracle database.
      */
     private final Long userId;
+    private final String username;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -45,7 +46,7 @@ public final class AuthUser implements Authentication {
 
     @Override
     public Object getDetails() {
-        return new UserDetail(userId.toString());
+        return new UserDetail(userId, username);
     }
 
     @Override

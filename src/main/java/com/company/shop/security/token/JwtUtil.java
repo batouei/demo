@@ -3,6 +3,7 @@ package com.company.shop.security.token;
 import com.company.shop.security.UserDetail;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -16,12 +17,9 @@ public class JwtUtil {
     @Value("${jwt.secret}")
     private String secretKey;
 
+    @Getter
     @Value("${jwt.expirationMs}")
     private long expirationMs;
-
-    public long getExpirationMs() {
-        return expirationMs;
-    }
 
     public String generateToken(UserDetail userDetail) {
         Map<String, Object> claims = new HashMap<>();
@@ -29,8 +27,8 @@ public class JwtUtil {
     }
 
     private String createToken(Map<String, Object> claims, String subject) {
-        Date now = new Date();
-        Date expiration = new Date(now.getTime() + expirationMs);
+        var now = new Date();
+        var expiration = new Date(now.getTime() + expirationMs);
 
         return Jwts.builder()
                 .setClaims(claims)
@@ -42,7 +40,7 @@ public class JwtUtil {
     }
 
     public boolean validateToken(String token, UserDetail userDetail) {
-        String username = extractUsername(token);
+        var username = extractUsername(token);
         return (username.equals(userDetail.getUsername()) && !isTokenExpired(token));
     }
 
@@ -51,7 +49,7 @@ public class JwtUtil {
     }
 
     private boolean isTokenExpired(String token) {
-        Date expiration = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getExpiration();
+        var expiration = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getExpiration();
         return expiration.before(new Date());
     }
 }

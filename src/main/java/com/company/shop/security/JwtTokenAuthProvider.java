@@ -22,11 +22,9 @@ final class JwtTokenAuthProvider implements AuthenticationProvider {
     @Override
     public Authentication authenticate(Authentication authentication) {
         var authRequest = (AuthTokenRequest) authentication;
-
         try {
             var payload = verify(authRequest.getCredentials().toString());
-
-            return new AuthUser(null, payload.getUserId());
+            return new AuthUser(null, payload.getUserId(), payload.getUsername());
 
         } catch (Exception e) {
             throw new BadCredentialsException(e.getMessage(), e);
@@ -34,10 +32,11 @@ final class JwtTokenAuthProvider implements AuthenticationProvider {
     }
 
     private UserTokenPayload verify(String token) {
-        var userDetail = userService.findByUsername(jwtUtil.extractUsername(token));
+        var user = userService.findByUsername(jwtUtil.extractUsername(token));
+        var userDetail = new UserDetail(user.getId(), user.getUsername());
         var validatedToken = jwtUtil.validateToken(token, userDetail);
         if (validatedToken)
-            return new UserTokenPayload(userDetail.getId(), Duration.of(jwtUtil.getExpirationMs(), ChronoUnit.MILLIS));
+            return new UserTokenPayload(user.getId(), user.getUsername(), Duration.of(jwtUtil.getExpirationMs(), ChronoUnit.MILLIS));
         throw new BadCredentialsException("Invalid credential valid!");
     }
 

@@ -9,5 +9,6 @@ import java.time.Duration;
 @RequiredArgsConstructor
 public class UserTokenPayload {
     private final Long userId;
+    private final String username;
     private final Duration expiration;
 }
