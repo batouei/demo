@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -23,7 +24,7 @@ public class UserController {
     private final JwtUtil jwtUtil;
 
     @PostMapping(UrlMapping.USER_LOGIN)
-    public ResponseEntity<LoginResponseDto> login(LoginRequestDto loginRequestDto) throws UnAuthorizedUserException {
+    public ResponseEntity<LoginResponseDto> login(@RequestBody LoginRequestDto loginRequestDto) throws UnAuthorizedUserException {
         var user = userService.findByUsername(loginRequestDto.getUsername());
         var passwordEncoder = new BCryptPasswordEncoder();
         LoginResponseDto loginResponseDto;
@@ -39,7 +40,7 @@ public class UserController {
 
 
     @PostMapping(UrlMapping.USER_REGISTER)
-    public ResponseEntity<Void> register(UserRegistrationDto userRegistrationDto) {
+    public ResponseEntity<Void> register(@RequestBody UserRegistrationDto userRegistrationDto) {
         var userRegistration = UserRegistration.of(userRegistrationDto.getFirstName(), userRegistrationDto.getLastName(),
                 userRegistrationDto.getUsername(), userRegistrationDto.getPassword(),
                 userRegistrationDto.getMobileNumber(), userRegistrationDto.getEmail());

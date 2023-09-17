@@ -14,7 +14,7 @@ import java.util.Map;
 @Service
 public class JwtUtil {
 
-    @Value("${jwt.secret}")
+    @Value("${jwt.secretKey}")
     private String secretKey;
 
     @Getter
@@ -30,7 +30,7 @@ public class JwtUtil {
         var now = new Date();
         var expiration = new Date(now.getTime() + expirationMs);
 
-        return Jwts.builder()
+        return "Bearer " + Jwts.builder()
                 .setClaims(claims)
                 .setSubject(subject)
                 .setIssuedAt(now)
