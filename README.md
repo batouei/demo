@@ -1,4 +1,12 @@
 # Shop Project README
+## Project Business diagram
+
+The following diagram illustrates the relationships within the shop domain:
+
+```
+![img.png](img.png)
+
+```
 
 ## Project Overview
 
@@ -43,14 +51,3 @@ Testing is a crucial aspect of this project, ensuring the reliability and correc
 ## API Documentation
 
 API documentation is provided in the form of a Swagger YAML file (swagger.yml). You can access the graphical Swagger documentation using IntelliJ IDEA or by visiting [https://editor.swagger.io/](https://editor.swagger.io/). This documentation serves as a valuable resource for understanding and interacting with the project's API endpoints.
-
-## Project Architecture
-
-The following diagram illustrates the relationships within the shop domain:
-
-```
-![image](https://github.com/batouei/demo/assets/52099498/1ba5b34c-03c1-45ff-9ec3-ca428c7553a9)
-
-```
-
-This README serves as an initial guide to understanding the structure and functionality of the shop project. For more detailed information and instructions, please refer to the relevant documentation and codebase.
