@@ -1,4 +1,10 @@
 package com.company.shop.order.service;
 
-public class OrderServiceImpl {
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+@Service
+@RequiredArgsConstructor
+public class OrderServiceImpl implements OrderService{
+
 }
