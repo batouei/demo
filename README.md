@@ -4,7 +4,7 @@
 The following diagram illustrates the relationships within the shop domain:
 
 ```
-![img.png](img.png)
+![image](https://github.com/batouei/demo/assets/52099498/a1acdf3a-0a4d-42d1-838c-8076c98ccae0)
 
 ```
 
