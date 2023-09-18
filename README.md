@@ -34,8 +34,9 @@ The typical user journey for making a purchase involves the following steps:
 5. The payment process begins, generating a tracker ID. The application interacts with an IPG, redirecting users to complete the payment process.
 6. Upon completion, the tracker ID is obtained from the IPG, and the result (success/fail) is saved in the payment table.
 
-## Database
+## Database and flyway migration
 - **Database:** The application utilizes a robust relational database, Oracle, which can be alternative by MySQL or other databases. Oracle can be set up using a Docker image and managed with Docker Compose.
+- **Flyway:** The application utilizes with flyWay migration it has a config on application.yml file. for start project you should enable it to create tables.
 
 ## Exception Handling
 
