@@ -1,4 +1,4 @@
-package com.company.shop.basket.service;
+package com.company.shop.request.service;
 
-public class BasketServiceImpl {
+public class RequestServiceImpl {
 }

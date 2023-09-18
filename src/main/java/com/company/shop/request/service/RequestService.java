@@ -1,4 +1,7 @@
-package com.company.shop.basket.service;
+package com.company.shop.request.service;
 
-public interface BasketService {
+/**
+ * This service indicates to carts at shop.
+ */
+public interface RequestService {
 }
