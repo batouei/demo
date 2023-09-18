@@ -40,5 +40,4 @@ public class Order {
     void updatedAt() {
         this.updatedAt =  LocalDateTime.now();
     }
-
 }
