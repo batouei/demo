@@ -1,0 +1,57 @@
+openapi: "3.0.0"
+info:
+  version: "1.0.0"
+  title: "Shop API Doc"
+
+servers:
+  - url: http://localhost:8080
+paths:
+  /users/register:
+    post:
+      summary: "API to register user."
+      tags:
+        - User Register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/UserRegistrationDto'
+      responses:
+        200:
+          description: "When registration is successfull return http.status = 200"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/BaseResponse'
+
+
+components:
+  UserRegistrationDto:
+    type: object
+    properties:
+      username:
+        type: string
+        nullable: false
+      password:
+        type: string
+        nullable: false
+      firstname:
+        type: string
+        nullable: false
+      lastname:
+        type: string
+        nullable: false
+      email:
+        type: string
+        nullable: true
+      mobileNumber:
+        type: string
+        nullable: false
+
+  BaseResponse:
+    type: object
+    properties:
+      status:
+        type: string
+      message:
+        type: string
