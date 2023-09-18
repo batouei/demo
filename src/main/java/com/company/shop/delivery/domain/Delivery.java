@@ -1,4 +1,4 @@
-package com.company.shop.product.domain;
+package com.company.shop.delivery.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -6,17 +6,15 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
-
 @Getter
 @Entity
-@Table(name = "ORDERS")
 @NoArgsConstructor
-public class Product {
+public class Delivery {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    //TODO complete
+    // ToDo complete
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
