@@ -23,7 +23,7 @@ The core functionality of this project revolves around several key entities, inc
 3. **Product:** Represents the items available for purchase.
 4. **Delivery:** Includes the available delivery times for orders.
 5. **Payment:** Manages the payment process, including the generation of tracker IDs and interaction with an IPG (Internet Payment Gateway).
-6. **Request:** Tracks user actions on orders, such as adding or removing products.
+6. **Request:** Tracks user actions.like keeping statuses and using ID to payment flow.
 
 The typical user journey for making a purchase involves the following steps:
 
@@ -36,7 +36,7 @@ The typical user journey for making a purchase involves the following steps:
 
 ## Database and flyway migration
 - **Database:** The application utilizes a robust relational database, Oracle, which can be alternative by MySQL or other databases. Oracle can be set up using a Docker image and managed with Docker Compose.
-- **Flyway:** The application utilizes with flyWay migration it has a config on application.yml file. for start project you should enable it to create tables.
+- **Flyway:** The application utilizes flyway migration it has a config on the application.yml file. To start the project you should enable it to create tables.
 
 ## Exception Handling
 
