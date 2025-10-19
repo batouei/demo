@@ -1,4 +1,3 @@
-version: "3"
 services:
   db:
     image: quay.io/maksymbilenko/oracle-12c:latest
@@ -9,3 +8,9 @@ services:
     hostname: oracle
     networks:
       - shop
+
+volumes:
+  oracle:
+
+networks:
+  shop:
